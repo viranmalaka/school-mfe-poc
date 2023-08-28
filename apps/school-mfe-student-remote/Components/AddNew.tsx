@@ -1,4 +1,5 @@
 import { Button, Grid, TextField } from '@mui/material';
+import { sharedLib } from '@school-mfe-poc/shared-lib';
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 
 interface Student {
@@ -75,6 +76,7 @@ const AddNew: React.FC = () => {
           </Button>
         </Grid>
       </Grid>
+      <p>{sharedLib()}</p>
     </form>
   );
 };
