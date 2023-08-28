@@ -1,10 +1,18 @@
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 
+import {
+  Collapse,
+  List,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  ListSubheader,
+} from '@mui/material';
+import { sharedLib } from '@school-mfe-poc/shared-lib';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { getFullMenu } from '../config/menu-configs';
-import { Collapse, List, ListItemButton, ListItemIcon, ListItemText, ListSubheader } from '@mui/material';
 
 const AppMenu = () => {
   const [open, setOpen] = useState<Record<string, boolean>>({});
@@ -26,7 +34,7 @@ const AppMenu = () => {
       aria-labelledby="nested-list-subheader"
       subheader={
         <ListSubheader component="div" id="nested-list-subheader">
-          This is dynamic menu
+          This is dynamic menu {sharedLib()}
         </ListSubheader>
       }
     >
