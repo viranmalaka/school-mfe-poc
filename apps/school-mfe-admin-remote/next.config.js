@@ -16,11 +16,9 @@ const nextConfig = {
   webpack(config, options) {
     config.plugins.push(
       new NextFederationPlugin({
-        name: 'school-host',
+        name: 'school-admin-remote',
         filename: 'static/chunks/remoteEntry.js',
-        exposes: {
-          './theme': './config/theme-config.ts',
-        },
+        exposes: SharedConfig.getCommonExposes(),
         remotes: SharedConfig.getRemote(options.isServer),
         shared: SharedConfig.getShareModules(),
         extraOptions: {

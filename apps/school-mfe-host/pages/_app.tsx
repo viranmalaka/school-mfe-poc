@@ -1,15 +1,22 @@
+import { ThemeProvider } from '@mui/material';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import AppLayout from '../Components/AppLayout';
+import themeConfig from '../config/theme-config';
 import './styles.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Welcome to school-mfe-host!</title>
+        <title>Stable Micro Frontend</title>
       </Head>
       <main className="app">
-        <Component {...pageProps} />
+        <ThemeProvider theme={themeConfig}>
+          <AppLayout>
+            <Component {...pageProps} />
+          </AppLayout>
+        </ThemeProvider>
       </main>
     </>
   );

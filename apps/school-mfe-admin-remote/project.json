@@ -1,7 +1,7 @@
 {
-  "name": "school-mfe-host",
+  "name": "school-mfe-admin-remote",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/school-mfe-host",
+  "sourceRoot": "apps/school-mfe-admin-remote",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,11 +9,11 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/school-mfe-host"
+        "outputPath": "dist/apps/school-mfe-admin-remote"
       },
       "configurations": {
         "development": {
-          "outputPath": "apps/school-mfe-host"
+          "outputPath": "apps/school-mfe-admin-remote"
         },
         "production": {}
       }
@@ -22,17 +22,17 @@
       "executor": "@nx/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "school-mfe-host:build",
+        "buildTarget": "school-mfe-admin-remote:build",
         "dev": true,
-        "port": 3000
+        "port": 3003
       },
       "configurations": {
         "development": {
-          "buildTarget": "school-mfe-host:build:development",
+          "buildTarget": "school-mfe-admin-remote:build:development",
           "dev": true
         },
         "production": {
-          "buildTarget": "school-mfe-host:build:production",
+          "buildTarget": "school-mfe-admin-remote:build:production",
           "dev": false
         }
       }
@@ -40,14 +40,14 @@
     "export": {
       "executor": "@nx/next:export",
       "options": {
-        "buildTarget": "school-mfe-host:build:production"
+        "buildTarget": "school-mfe-admin-remote:build:production"
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/school-mfe-host/jest.config.ts",
+        "jestConfig": "apps/school-mfe-admin-remote/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -61,7 +61,9 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/school-mfe-host/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": [
+          "apps/school-mfe-admin-remote/**/*.{ts,tsx,js,jsx}"
+        ]
       }
     }
   },
