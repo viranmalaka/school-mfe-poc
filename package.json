@@ -2,7 +2,10 @@
   "name": "@school-mfe-poc/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start-all": "npx nx run-many --target=serve -p --maxParallel=4 --all",
+    "build": "npx nx run school-mfe-host:build"
+  },
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
